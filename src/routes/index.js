@@ -57,7 +57,7 @@ const capitalStr=(string)=>{
 
 const traerInfo = async ()=> {
     try {
-      const Api = await axios.get(`${API_KEY}`);
+      const Api = await axios.get(`https://pokeapi.co/api/v2/pokemon`);
       const resMap = Api.data.results.map((e) => axios.get(e.url));
       const e = await Promise.all(resMap);
       
@@ -92,7 +92,7 @@ const traerInfo = async ()=> {
 
 
 const infoTypes = async()=>{
-    const inforApi = await axios.get(`${API_KEY_TYPE}`)
+    const inforApi = await axios.get(`https://pokeapi.co/api/v2/type`)
     const infoApiFiltrada = inforApi.data.results.map(e=>e.name)
     return infoApiFiltrada
 }
