@@ -57,7 +57,7 @@ const capitalStr=(string)=>{
 
 const traerInfo = async ()=> {
     try {
-      const Api = await axios.get(`https://pokeapi.co/api/v2/pokemon`);
+      const Api = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=40`);
       const resMap = Api.data.results.map((e) => axios.get(e.url));
       const e = await Promise.all(resMap);
       
